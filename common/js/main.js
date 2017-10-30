@@ -13,7 +13,6 @@ function judgePC(){
 		}
 	})();
 }
-
 function ajax(method,url){
     var xmlhttp;
     if(window.XMLHttpRequest){
@@ -63,4 +62,3 @@ function ajax(method,url){
     xmlhttp.send();    
 
 }
-
