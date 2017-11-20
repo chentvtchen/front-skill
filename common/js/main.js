@@ -13,6 +13,7 @@ function judgePC(){
 		}
 	})();
 }
+//ajax代码
 function ajax(method,url){
     var xmlhttp;
     if(window.XMLHttpRequest){
@@ -61,4 +62,36 @@ function ajax(method,url){
     //将信息发送到服务器
     xmlhttp.send();    
 
+}
+
+//数组去重元素
+//第一版本,缺点：性能低，循环多；优点：兼容性好
+function unique(array){
+    var res = [];
+    var len = array.length;
+    for(var i = 0;i < len;i++){
+        var resLen = res.length;
+        for(var j = 0;j < resLen;j++){
+            if(array[i] === res[j]){
+                break;
+            }
+        }
+        //循环完了
+        if(resLen === j){
+            res.push(array[i]);
+        }
+    }
+    return res;
+}
+//第二版本,indexOf es5语法，ie8以及以下不可以使用
+function unique(array){
+    var res = [];
+    var len = array.length;
+    for(var i = 0;i < len;i++){
+        var val = array[i];
+        if(res.indexOf(val) === -1){
+            res.push(val);
+        }
+    }
+    return res;
 }
